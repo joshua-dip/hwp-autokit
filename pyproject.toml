@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hwp-autokit"
+version = "0.1.0"
+description = "Battle-tested helpers for automating Hancom Hangul (HWP/HWPX) over COM on Windows: isolated gen_py cache, safe quit, serial build queue, verified saves, page-overflow checks."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+# authors/maintainers: to be filled in by the owner before publishing
+keywords = ["hwp", "hwpx", "hangul", "hancom", "com", "automation", "pywin32", "korean"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Office Suites",
+    "Topic :: Text Processing",
+    "Natural Language :: Korean",
+]
+dependencies = [
+    "Pillow>=9",
+    "pywin32>=305; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+pdf = ["PyMuPDF>=1.23"]
+test = ["pytest>=7"]
+
+[project.scripts]
+hwp-autokit = "hwp_autokit.cli:main"
+hwp-pagecheck = "hwp_autokit.cli:pagecheck_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = [
+    "com: needs Windows + Hancom Hangul + HWP_AUTOKIT_COM_TESTS=1 (launches Hangul)",
+    "windows: needs Windows",
+]

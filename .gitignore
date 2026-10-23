@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+.env
+*.log
+
+# private: application draft for the owner, not part of the published project
+APPLICATION_DRAFT.md
