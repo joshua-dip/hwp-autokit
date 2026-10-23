@@ -9,7 +9,7 @@ description = "Battle-tested helpers for automating Hancom Hangul (HWP/HWPX) ove
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.9"
-# authors/maintainers: to be filled in by the owner before publishing
+authors = [{ name = "Joshua Park" }]
 keywords = ["hwp", "hwpx", "hangul", "hancom", "com", "automation", "pywin32", "korean"]
 classifiers = [
     "Development Status :: 3 - Alpha",
